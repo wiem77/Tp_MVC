@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Task</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="task-container">
+        <h1>To do list</h1>
+
+        <label for="sortTasks">Sort Tasks by Difficulty:</label>
+        <select id="sortTasks">
+          <option value="All">All</option>
+          <option value="Divers">Divers</option>
+          <option value="Maison">Maison</option>
+          <option value="Travail">Travail</option>
+        </select>
+        <ul id="tasksList"></ul>
+      </div>
+      <div class="task-container">
+        <form id="taskForm">
+          <label for="taskName">Task name:</label>
+          <input type="text" id="taskName" name="taskName" /><br /><br />
+          <label for="taskType">Task type:</label>
+          <select id="taskType" name="taskType">
+            <option value="Divers">Divers</option>
+            <option value="Maison">Maison</option>
+            <option value="Travail">Travail</option></select
+          ><br /><br />
+          <button type="submit">Add Task</button>
+        </form>
+      </div>
+    </div>
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const model = new TaskModel();
+        const view = new TaskView();
+        const controller = new TaskController(model, view);
+
+        const instance1 = new TaskModel();
+        const instance2 = new TaskModel();
+        console.log(instance1 === instance2);
+      });
+    </script>
+  </body>
+</html>
